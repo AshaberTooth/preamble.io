@@ -3,7 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ashish Mishra - Solutions Architect & AI/Agentic AI Specialist</title>
+    <meta name="description" content="Ashish Mishra - Lead Solutions Architect specializing in Azure AI, Agentic AI, and Enterprise Cloud Architecture">
+    <meta name="keywords" content="Solutions Architect, Azure, AI, Agentic AI, Enterprise Architecture, Cloud">
+    <title>Ashish Mishra — Lead Solutions Architect</title>
     <style>
         * {
             margin: 0;
@@ -12,33 +14,37 @@
         }
 
         :root {
-            --primary: #0066cc;
-            --secondary: #004499;
-            --accent: #00a8e8;
-            --success: #2ecc71;
-            --danger: #e74c3c;
-            --dark: #1a1a1a;
-            --light: #f8f9fa;
-            --gray: #6c757d;
-            --border: #dee2e6;
+            --bg-dark: #0a0e27;
+            --bg-darker: #050812;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b8d4;
+            --accent-primary: #0066cc;
+            --accent-secondary: #00a8e8;
+            --border-color: #1a1f3a;
+            --card-bg: #0f1425;
+        }
+
+        html {
+            scroll-behavior: smooth;
         }
 
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, var(--bg-dark) 0%, var(--bg-darker) 100%);
+            color: var(--text-primary);
             line-height: 1.6;
-            color: var(--dark);
-            background: var(--light);
+            overflow-x: hidden;
         }
 
-        /* Navigation & Header */
+        /* Navigation */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 2rem 0;
             position: sticky;
             top: 0;
             z-index: 100;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            background: rgba(10, 14, 39, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            padding: 1.5rem 0;
         }
 
         nav {
@@ -51,9 +57,10 @@
         }
 
         .logo {
-            font-size: 1.5rem;
+            font-size: 1.2rem;
             font-weight: 700;
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            color: var(--text-primary);
         }
 
         nav ul {
@@ -64,268 +71,514 @@
         }
 
         nav a {
-            color: white;
+            color: var(--text-secondary);
             text-decoration: none;
             font-weight: 500;
-            transition: opacity 0.3s;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
         }
 
         nav a:hover {
-            opacity: 0.8;
+            color: var(--accent-primary);
         }
 
         .admin-btn {
-            background: var(--accent);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
+            background: var(--accent-primary);
+            color: white;
+            padding: 0.6rem 1.2rem;
+            border-radius: 6px;
+            border: none;
             font-weight: 600;
             cursor: pointer;
-            border: none;
-            color: white;
-            transition: background 0.3s;
+            font-size: 0.9rem;
+            transition: background 0.3s ease;
         }
 
         .admin-btn:hover {
-            background: #0088c4;
+            background: var(--accent-secondary);
         }
 
-        /* Main Container */
+        /* Hero Section */
+        .hero {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 6rem 2rem 4rem;
+        }
+
+        .hero-grid {
+            display: grid;
+            grid-template-columns: 1fr 280px;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-secondary) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero-content .tagline {
+            font-size: 1.3rem;
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-weight: 400;
+        }
+
+        .hero-content .subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+            line-height: 1.8;
+            max-width: 700px;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 0.8rem 1.8rem;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--accent-primary);
+            border: 2px solid var(--accent-primary);
+        }
+
+        .btn-secondary:hover {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .hero-profile {
+            text-align: center;
+        }
+
+        .profile-pic-wrapper {
+            margin-bottom: 2rem;
+        }
+
+        .profile-pic {
+            width: 240px;
+            height: 240px;
+            border-radius: 12px;
+            border: 2px solid var(--accent-primary);
+            object-fit: cover;
+            display: block;
+        }
+
+        .profile-placeholder {
+            width: 240px;
+            height: 240px;
+            border-radius: 12px;
+            border: 2px dashed var(--accent-primary);
+            background: rgba(0, 102, 204, 0.05);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(0, 102, 204, 0.3);
+            margin: 0 auto;
+        }
+
+        .stats {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 1.5rem;
+        }
+
+        .stat {
+            text-align: center;
+        }
+
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-primary);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Container */
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 2rem;
         }
 
-        /* Hero Section */
-        .hero {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 4rem 0;
-            margin-top: -4rem;
-            padding-top: 8rem;
+        /* Section */
+        .section {
+            margin: 4rem 0;
+            padding: 0;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 0.5rem;
+            color: var(--text-primary);
+        }
+
+        .section-subtitle {
+            font-size: 1rem;
+            color: var(--text-secondary);
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+
+        /* Download CV Section */
+        .cv-section {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 3rem;
             text-align: center;
         }
 
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
-
-        .hero p {
-            font-size: 1.25rem;
-            opacity: 0.95;
-            margin-bottom: 1.5rem;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-meta {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            font-size: 0.95rem;
-            opacity: 0.9;
-        }
-
-        /* Main Content Grid */
-        .main-grid {
-            display: grid;
-            grid-template-columns: 1fr 300px;
-            gap: 2rem;
-            margin: 2rem 0;
-        }
-
-        .section {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
+        .cv-content {
             margin-bottom: 2rem;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
         }
 
-        .section h2 {
-            color: var(--primary);
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
-            border-bottom: 3px solid var(--accent);
-            padding-bottom: 0.5rem;
-        }
-
-        .section h3 {
-            color: var(--secondary);
-            font-size: 1.3rem;
-            margin-top: 1.5rem;
+        .cv-content h3 {
+            color: var(--accent-primary);
+            font-size: 1.2rem;
             margin-bottom: 0.75rem;
         }
 
-        /* Sidebar */
-        aside {
-            position: sticky;
-            top: 100px;
-            height: fit-content;
-        }
-
-        .sidebar-card {
-            background: white;
-            padding: 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        .cv-content p {
+            color: var(--text-secondary);
             margin-bottom: 1.5rem;
         }
 
-        .sidebar-card h3 {
-            color: var(--primary);
-            font-size: 1rem;
-            margin-bottom: 1rem;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-        }
-
-        .skills-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.75rem;
-        }
-
-        .skill-tag {
-            background: var(--accent);
-            color: white;
-            padding: 0.5rem 0.75rem;
-            border-radius: 4px;
-            font-size: 0.85rem;
-            font-weight: 500;
-            text-align: center;
-        }
-
-        .social-links {
+        .cv-buttons {
             display: flex;
             gap: 1rem;
-            margin-top: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
         }
 
-        .social-links a {
-            display: inline-block;
-            width: 40px;
-            height: 40px;
-            background: var(--primary);
+        .cv-download-btn {
+            background: var(--accent-primary);
             color: white;
-            border-radius: 50%;
-            text-align: center;
-            line-height: 40px;
+            padding: 0.9rem 2rem;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            cursor: pointer;
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
             text-decoration: none;
-            transition: background 0.3s;
-            font-weight: bold;
         }
 
-        .social-links a:hover {
-            background: var(--secondary);
+        .cv-download-btn:hover {
+            background: var(--accent-secondary);
+            transform: translateY(-2px);
         }
 
-        /* Experience & Project Cards */
-        .experience-item, .project-card {
-            border-left: 4px solid var(--accent);
-            padding-left: 1.5rem;
-            margin-bottom: 2rem;
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(520px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
             position: relative;
+            overflow: hidden;
         }
 
-        .experience-item::before, .project-card::before {
+        .project-card::before {
             content: '';
             position: absolute;
-            left: -12px;
             top: 0;
-            width: 20px;
-            height: 20px;
-            background: var(--accent);
-            border-radius: 50%;
-            border: 3px solid white;
-            box-shadow: 0 0 0 3px var(--primary);
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent-primary), var(--accent-secondary));
         }
 
-        .experience-header {
-            display: flex;
-            justify-content: space-between;
-            gap: 1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-title {
-            font-weight: 600;
-            font-size: 1.1rem;
-        }
-
-        .experience-date {
-            color: var(--gray);
-            font-size: 0.9rem;
-            font-weight: 500;
-        }
-
-        .experience-company {
-            color: var(--secondary);
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .experience-description {
-            color: #444;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .experience-description ul {
-            margin-left: 1.5rem;
-            margin-top: 0.75rem;
-            color: #555;
-        }
-
-        .experience-description li {
-            margin-bottom: 0.5rem;
-        }
-
-        /* Project Cards */
-        .project-card {
-            background: #f9f9f9;
-            border: 1px solid var(--border);
-            border-left: 4px solid var(--accent);
-            padding: 1.5rem;
-            border-radius: 6px;
+        .project-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.2);
         }
 
         .project-title {
-            font-weight: 600;
-            font-size: 1.15rem;
-            color: var(--primary);
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
             margin-bottom: 0.5rem;
+            margin-top: 0.5rem;
         }
 
-        .project-meta {
+        .project-category {
             font-size: 0.85rem;
-            color: var(--gray);
-            margin-bottom: 0.75rem;
+            color: var(--accent-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+            margin-bottom: 1rem;
         }
 
-        .project-description {
-            color: #555;
+        .project-text {
+            color: var(--text-secondary);
             margin-bottom: 1rem;
-            line-height: 1.6;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .project-text strong {
+            color: var(--text-primary);
         }
 
         .project-tags {
             display: flex;
             flex-wrap: wrap;
             gap: 0.5rem;
+            margin-top: 1.5rem;
         }
 
         .tag {
-            background: var(--primary);
-            color: white;
-            padding: 0.3rem 0.7rem;
-            border-radius: 20px;
+            background: rgba(0, 102, 204, 0.15);
+            color: var(--accent-primary);
+            padding: 0.4rem 0.8rem;
+            border-radius: 4px;
             font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        /* Blog Grid */
+        .blogs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .blog-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .blog-card:hover {
+            border-color: var(--accent-primary);
+            transform: translateY(-4px);
+            box-shadow: 0 10px 30px rgba(0, 102, 204, 0.2);
+        }
+
+        .blog-date {
+            font-size: 0.8rem;
+            color: var(--accent-secondary);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.75rem;
+            font-weight: 600;
+        }
+
+        .blog-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 1rem;
+            line-height: 1.4;
+        }
+
+        .blog-excerpt {
+            color: var(--text-secondary);
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+            flex-grow: 1;
+        }
+
+        .blog-category {
+            display: inline-block;
+            background: rgba(0, 168, 232, 0.15);
+            color: var(--accent-secondary);
+            padding: 0.3rem 0.7rem;
+            border-radius: 4px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        .blog-link {
+            color: var(--accent-primary);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .blog-link:hover {
+            color: var(--accent-secondary);
+        }
+
+        /* Experience */
+        .experience-item {
+            background: var(--card-bg);
+            border-left: 3px solid var(--accent-primary);
+            padding: 2rem;
+            margin-bottom: 2rem;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+            border-left: 3px solid var(--accent-primary);
+        }
+
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.75rem;
+            gap: 1rem;
+        }
+
+        .exp-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--text-primary);
+        }
+
+        .exp-company {
+            color: var(--accent-secondary);
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .exp-date {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            white-space: nowrap;
+        }
+
+        .exp-description {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        /* Certifications Grid */
+        .certs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+
+        .cert-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 3px solid var(--accent-secondary);
+            transition: all 0.3s ease;
+        }
+
+        .cert-card:hover {
+            border-color: var(--accent-secondary);
+            transform: translateY(-2px);
+        }
+
+        .cert-name {
+            font-weight: 700;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .cert-issuer {
+            color: var(--text-secondary);
+            font-size: 0.85rem;
+            margin-bottom: 0.3rem;
+        }
+
+        .cert-date {
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            font-style: italic;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .skill-category {
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
+            padding: 1.5rem;
+            border-radius: 8px;
+        }
+
+        .skill-category h3 {
+            color: var(--accent-primary);
+            margin-bottom: 1rem;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-weight: 600;
+        }
+
+        .skill-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.7rem;
+        }
+
+        .skill-item {
+            background: rgba(0, 102, 204, 0.1);
+            color: var(--accent-primary);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.85rem;
             font-weight: 500;
         }
 
@@ -337,37 +590,43 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: rgba(0,0,0,0.5);
+            background: rgba(5, 8, 18, 0.95);
+            backdrop-filter: blur(5px);
             z-index: 1000;
             overflow-y: auto;
+            justify-content: center;
+            align-items: center;
         }
 
         .admin-panel.active {
             display: flex;
-            align-items: center;
-            justify-content: center;
         }
 
         .admin-modal {
-            background: white;
+            background: var(--card-bg);
+            border: 1px solid var(--border-color);
             border-radius: 8px;
             width: 90%;
             max-width: 900px;
             max-height: 90vh;
             overflow-y: auto;
-            box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
         }
 
         .modal-header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+            background: linear-gradient(135deg, var(--accent-primary), var(--accent-secondary));
             color: white;
-            padding: 1.5rem;
+            padding: 2rem;
             display: flex;
             justify-content: space-between;
             align-items: center;
+            position: sticky;
+            top: 0;
+            border-radius: 8px 8px 0 0;
         }
 
         .modal-header h2 {
+            font-size: 1.5rem;
             margin: 0;
         }
 
@@ -375,180 +634,48 @@
             background: none;
             border: none;
             color: white;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             cursor: pointer;
-            width: 30px;
-            height: 30px;
+            width: 40px;
+            height: 40px;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: opacity 0.3s;
+        }
+
+        .close-btn:hover {
+            opacity: 0.8;
         }
 
         .modal-body {
             padding: 2rem;
         }
 
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-group label {
-            display: block;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            color: var(--dark);
-        }
-
-        .form-group input,
-        .form-group textarea,
-        .form-group select {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid var(--border);
-            border-radius: 4px;
-            font-family: inherit;
-            font-size: 1rem;
-        }
-
-        .form-group textarea {
-            resize: vertical;
-            min-height: 100px;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus,
-        .form-group select:focus {
-            outline: none;
-            border-color: var(--primary);
-            box-shadow: 0 0 0 3px rgba(0,102,204,0.1);
-        }
-
-        .btn-group {
-            display: flex;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .btn {
-            padding: 0.75rem 1.5rem;
-            border: none;
-            border-radius: 4px;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s;
-            font-size: 1rem;
-        }
-
-        .btn-primary {
-            background: var(--primary);
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background: var(--secondary);
-        }
-
-        .btn-danger {
-            background: var(--danger);
-            color: white;
-        }
-
-        .btn-danger:hover {
-            background: #c0392b;
-        }
-
-        .btn-secondary {
-            background: var(--gray);
-            color: white;
-        }
-
-        .btn-secondary:hover {
-            background: #5a6268;
-        }
-
-        /* Project List in Admin */
-        .projects-list {
-            display: grid;
-            gap: 1rem;
-            margin-bottom: 2rem;
-        }
-
-        .project-item {
-            background: var(--light);
-            padding: 1rem;
-            border-radius: 4px;
-            display: flex;
-            justify-content: space-between;
-            align-items: start;
-            border-left: 4px solid var(--accent);
-        }
-
-        .project-item-info h4 {
-            margin: 0 0 0.5rem 0;
-            color: var(--primary);
-        }
-
-        .project-item-info p {
-            margin: 0;
-            font-size: 0.9rem;
-            color: var(--gray);
-        }
-
-        .project-item-actions {
-            display: flex;
-            gap: 0.5rem;
-        }
-
-        .project-item-actions button {
-            padding: 0.5rem 1rem;
-            font-size: 0.85rem;
-            border: none;
-            border-radius: 4px;
-            cursor: pointer;
-            font-weight: 600;
-            transition: all 0.3s;
-        }
-
-        .edit-btn {
-            background: var(--primary);
-            color: white;
-        }
-
-        .edit-btn:hover {
-            background: var(--secondary);
-        }
-
-        .delete-btn {
-            background: var(--danger);
-            color: white;
-        }
-
-        .delete-btn:hover {
-            background: #c0392b;
-        }
-
-        /* Tabs in Admin */
         .admin-tabs {
             display: flex;
-            gap: 0;
-            border-bottom: 2px solid var(--border);
+            border-bottom: 1px solid var(--border-color);
             margin-bottom: 2rem;
+            gap: 0;
+            flex-wrap: wrap;
         }
 
         .tab-btn {
             padding: 1rem 1.5rem;
             background: none;
             border: none;
+            color: var(--text-secondary);
             cursor: pointer;
             font-weight: 600;
-            color: var(--gray);
+            font-size: 0.9rem;
             border-bottom: 3px solid transparent;
             transition: all 0.3s;
+            white-space: nowrap;
         }
 
         .tab-btn.active {
-            color: var(--primary);
-            border-bottom-color: var(--primary);
+            color: var(--accent-primary);
+            border-bottom-color: var(--accent-primary);
         }
 
         .tab-content {
@@ -559,207 +686,460 @@
             display: block;
         }
 
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-group label {
+            display: block;
+            color: var(--text-primary);
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            font-size: 0.95rem;
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 0.75rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            color: var(--text-primary);
+            font-family: inherit;
+            font-size: 0.95rem;
+        }
+
+        .form-group textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-primary);
+            background: rgba(0, 102, 204, 0.05);
+        }
+
+        .file-upload-label {
+            display: block;
+            padding: 2rem;
+            border: 2px dashed var(--border-color);
+            border-radius: 6px;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.3s;
+            background: rgba(0, 102, 204, 0.02);
+        }
+
+        .file-upload-label:hover {
+            border-color: var(--accent-primary);
+            background: rgba(0, 102, 204, 0.08);
+        }
+
+        .file-upload-label input {
+            display: none;
+        }
+
+        .file-preview img {
+            max-width: 150px;
+            max-height: 150px;
+            border-radius: 6px;
+            margin-top: 1rem;
+            border: 1px solid var(--border-color);
+        }
+
+        .file-preview-text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-top: 1rem;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1rem;
+            margin-top: 2rem;
+        }
+
+        .btn-admin {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s;
+            flex: 1;
+        }
+
+        .btn-save {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .btn-save:hover {
+            background: var(--accent-secondary);
+        }
+
+        .btn-delete {
+            background: rgba(231, 76, 60, 0.2);
+            color: #e74c3c;
+        }
+
+        .btn-delete:hover {
+            background: rgba(231, 76, 60, 0.3);
+        }
+
+        .items-list {
+            display: grid;
+            gap: 1rem;
+            margin-bottom: 2rem;
+        }
+
+        .item {
+            background: rgba(0, 102, 204, 0.05);
+            border: 1px solid var(--border-color);
+            padding: 1rem;
+            border-radius: 6px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .item-info h4 {
+            color: var(--text-primary);
+            margin: 0 0 0.3rem 0;
+            font-size: 0.95rem;
+        }
+
+        .item-info p {
+            color: var(--text-secondary);
+            margin: 0;
+            font-size: 0.85rem;
+        }
+
+        .item-actions {
+            display: flex;
+            gap: 0.5rem;
+        }
+
+        .item-actions button {
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .edit-btn {
+            background: var(--accent-primary);
+            color: white;
+        }
+
+        .delete-btn {
+            background: rgba(231, 76, 60, 0.2);
+            color: #e74c3c;
+        }
+
         /* Footer */
         footer {
-            background: var(--dark);
-            color: white;
-            padding: 2rem;
-            margin-top: 3rem;
+            background: var(--bg-darker);
+            border-top: 1px solid var(--border-color);
+            padding: 3rem 2rem;
+            margin-top: 4rem;
+        }
+
+        footer .container {
             text-align: center;
+        }
+
+        footer p {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin: 0.5rem 0;
+        }
+
+        footer a {
+            color: var(--accent-primary);
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
         }
 
         /* Responsive */
         @media (max-width: 768px) {
-            .main-grid {
+            .hero-grid {
                 grid-template-columns: 1fr;
             }
 
-            aside {
-                position: relative;
-                top: 0;
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .blogs-grid {
+                grid-template-columns: 1fr;
             }
 
             nav ul {
                 gap: 1rem;
+                font-size: 0.9rem;
             }
 
-            .hero h1 {
-                font-size: 2rem;
-            }
-
-            .hero-meta {
+            .exp-header {
                 flex-direction: column;
-                gap: 0.5rem;
+                align-items: flex-start;
             }
 
-            .experience-header {
+            .cv-section {
+                padding: 2rem;
+            }
+
+            .cv-buttons {
                 flex-direction: column;
             }
 
-            .modal-modal {
-                width: 95%;
+            .cv-download-btn {
+                width: 100%;
             }
 
-            .skills-grid {
-                grid-template-columns: 1fr;
+            .admin-tabs {
+                overflow-x: auto;
             }
-        }
 
-        .alert {
-            padding: 1rem;
-            border-radius: 4px;
-            margin-bottom: 1rem;
-        }
-
-        .alert-success {
-            background: #d4edda;
-            color: #155724;
-            border: 1px solid #c3e6cb;
-        }
-
-        .alert-error {
-            background: #f8d7da;
-            color: #721c24;
-            border: 1px solid #f5c6cb;
+            .tab-btn {
+                padding: 0.75rem 1rem;
+                font-size: 0.85rem;
+            }
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
     <header>
-        <nav class="container">
+        <nav>
             <div class="logo">Ashish Mishra</div>
             <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#experience">Experience</a></li>
+                <li><a href="#work">Work</a></li>
                 <li><a href="#projects">Projects</a></li>
-                <li><a href="#certifications">Certifications</a></li>
-                <button class="admin-btn" onclick="toggleAdminPanel()">⚙️ Admin</button>
+                <li><a href="#blogs">Blogs</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <button class="admin-btn" onclick="toggleAdminPanel()">Admin</button>
             </ul>
         </nav>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
-        <div class="container">
-            <h1>Ashish Mishra</h1>
-            <p>Lead Solutions Architect • AI/Agentic AI Specialist • Enterprise Cloud & Integration</p>
-            <div class="hero-meta">
-                <span>📍 11+ Years Enterprise Architecture</span>
-                <span>☁️ Azure • AWS • GCP</span>
-                <span>🤖 AI • Agentic AI • GenAI</span>
+        <div class="hero-grid">
+            <div class="hero-content">
+                <h1>Ashish Mishra</h1>
+                <div class="tagline">Lead Solutions Architect</div>
+                <p class="subtitle">11+ years designing and delivering enterprise-scale AI, cloud, and integration solutions across Azure, AWS, and GCP. Specializes in agentic AI systems, multi-agent orchestration, and business transformation for Fortune 500 enterprises.</p>
+                
+                <div class="cta-buttons">
+                    <button class="btn btn-primary" onclick="scrollToCV()">Download CV</button>
+                    <a href="#projects" class="btn btn-secondary">View Work</a>
+                </div>
+            </div>
+
+            <div class="hero-profile">
+                <div class="profile-pic-wrapper">
+                    <img id="profileImage" class="profile-pic" style="display:none;" alt="Ashish Mishra">
+                    <div id="profilePlaceholder" class="profile-placeholder">Profile</div>
+                </div>
+
+                <div class="stats">
+                    <div class="stat">
+                        <span class="stat-number">11+</span>
+                        <div class="stat-label">Years</div>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number" id="certCount">10</span>
+                        <div class="stat-label">Certs</div>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Main Content -->
-    <div class="container">
-        <div class="main-grid">
-            <!-- Left Column -->
-            <main>
-                <!-- About Section -->
-                <section class="section" id="about">
-                    <h2>Professional Summary</h2>
-                    <p id="aboutText">Dual-track AI Solutions Architect — 11+ years across enterprise cloud, voice and applied AI. Wins the deal as lead technical advisor (C-suite discovery, L-300 deep-dives, RFP/SoW, sizing and estimation), then owns the architecture to production. Designs multi-agent systems (MCP, A2A) and agentic landing zones on Azure AI Foundry, Copilot Studio and Azure OpenAI, with hands-on depth in OpenAI and Anthropic Claude. Attaches durable Azure and AI consumption to every win across pharmaceutical, banking, consumer goods and telecom accounts.</p>
-                </section>
-
-                <!-- Experience Section -->
-                <section class="section" id="experience">
-                    <h2>Experience</h2>
-                    <div id="experienceContainer"></div>
-                </section>
-
-                <!-- Projects Section -->
-                <section class="section" id="projects">
-                    <h2>Featured Projects & IP Assets</h2>
-                    <div id="projectsContainer"></div>
-                </section>
-
-                <!-- Certifications Section -->
-                <section class="section" id="certifications">
-                    <h2>Certifications & Continuous Learning</h2>
-                    <div id="certificationsContainer"></div>
-                </section>
-            </main>
-
-            <!-- Sidebar -->
-            <aside>
-                <!-- Key Skills -->
-                <div class="sidebar-card">
-                    <h3>Core Competencies</h3>
-                    <div class="skills-grid" id="skillsContainer"></div>
-                </div>
-
-                <!-- Quick Stats -->
-                <div class="sidebar-card">
-                    <h3>Quick Stats</h3>
-                    <p><strong>Years Experience:</strong> 11+</p>
-                    <p><strong>Certifications:</strong> <span id="certCount">10+</span></p>
-                    <p><strong>Projects Led:</strong> <span id="projectCount">20+</span></p>
-                    <p><strong>Current Role:</strong> Lead Solutions Architect @ NTT DATA</p>
-                </div>
-
-                <!-- Contact -->
-                <div class="sidebar-card">
-                    <h3>Connect</h3>
-                    <div class="social-links">
-                        <a href="https://linkedin.com" title="LinkedIn">in</a>
-                        <a href="https://github.com/AshaberTooth" title="GitHub">🐙</a>
-                        <a href="mailto:ashish@example.com" title="Email">✉️</a>
-                    </div>
-                </div>
-            </aside>
+    <!-- CV Download Section -->
+    <section class="section container" id="cv-section">
+        <div class="cv-section">
+            <div class="cv-content">
+                <h3>Download My Resume</h3>
+                <p>Get my complete CV with detailed experience, certifications, and technical background.</p>
+            </div>
+            <div class="cv-buttons">
+                <a id="cvDownloadBtn" class="cv-download-btn" style="display:none;">Download CV</a>
+                <div id="cvPlaceholder" style="color: var(--text-secondary); font-size: 0.95rem;">No CV uploaded yet. Admin can upload one.</div>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <!-- Featured Projects -->
+    <section class="section container" id="projects">
+        <h2 class="section-title">Featured Projects</h2>
+        <p class="section-subtitle">Enterprise-grade solutions and reusable platforms built for NTT DATA and strategic accounts</p>
+        <div class="projects-grid" id="projectsContainer"></div>
+    </section>
+
+    <!-- Blogs -->
+    <section class="section container" id="blogs">
+        <h2 class="section-title">Latest Articles</h2>
+        <p class="section-subtitle">Insights on enterprise architecture, AI, cloud solutions, and technology leadership</p>
+        <div class="blogs-grid" id="blogsContainer"></div>
+    </section>
+
+    <!-- Experience -->
+    <section class="section container" id="experience">
+        <h2 class="section-title">Professional Journey</h2>
+        <p class="section-subtitle">Roles and responsibilities across enterprise cloud, voice infrastructure, and applied AI</p>
+        <div id="experienceContainer"></div>
+    </section>
+
+    <!-- Certifications -->
+    <section class="section container" id="certifications">
+        <h2 class="section-title">Certifications</h2>
+        <p class="section-subtitle">Cloud platforms, AI engineering, and enterprise architecture certifications</p>
+        <div class="certs-grid" id="certificationsContainer"></div>
+    </section>
+
+    <!-- Skills -->
+    <section class="section container" id="work">
+        <h2 class="section-title">Core Competencies</h2>
+        <p class="section-subtitle">Technical depth across cloud platforms, AI systems, and enterprise patterns</p>
+        <div class="skills-grid" id="skillsContainer"></div>
+    </section>
 
     <!-- Admin Panel -->
     <div class="admin-panel" id="adminPanel">
         <div class="admin-modal">
             <div class="modal-header">
-                <h2>Portfolio Admin Panel</h2>
-                <button class="close-btn" onclick="toggleAdminPanel()">✕</button>
+                <h2>Portfolio Admin</h2>
+                <button class="close-btn" onclick="toggleAdminPanel()">×</button>
             </div>
             <div class="modal-body">
                 <div class="admin-tabs">
-                    <button class="tab-btn active" onclick="switchTab('projects-tab')">Manage Projects</button>
-                    <button class="tab-btn" onclick="switchTab('experience-tab')">Manage Experience</button>
-                    <button class="tab-btn" onclick="switchTab('about-tab')">Edit About</button>
-                    <button class="tab-btn" onclick="switchTab('export-tab')">Backup & Export</button>
+                    <button class="tab-btn active" onclick="switchTab('profile-tab')">Profile</button>
+                    <button class="tab-btn" onclick="switchTab('cv-tab')">CV Upload</button>
+                    <button class="tab-btn" onclick="switchTab('projects-tab')">Projects</button>
+                    <button class="tab-btn" onclick="switchTab('blogs-tab')">Blogs</button>
+                    <button class="tab-btn" onclick="switchTab('experience-tab')">Experience</button>
+                    <button class="tab-btn" onclick="switchTab('certs-tab')">Certifications</button>
+                    <button class="tab-btn" onclick="switchTab('export-tab')">Backup</button>
+                </div>
+
+                <!-- Profile Picture Tab -->
+                <div id="profile-tab" class="tab-content active">
+                    <h3 style="color: var(--text-primary); margin-bottom: 1.5rem;">Profile Picture</h3>
+                    <div class="form-group">
+                        <label>Upload Profile Picture</label>
+                        <label class="file-upload-label" for="profilePicInput">
+                            <div>Click to upload or drag and drop</div>
+                            <small style="color: var(--text-secondary);">Recommended: 240×240px square</small>
+                            <input type="file" id="profilePicInput" accept="image/*" onchange="handleProfilePicUpload(event)">
+                        </label>
+                        <div class="file-preview" id="profilePreview"></div>
+                    </div>
+                    <button class="btn-admin delete-btn" onclick="removeProfilePic()" style="width: auto; padding: 0.6rem 1.2rem;">Remove Picture</button>
+                </div>
+
+                <!-- CV Tab -->
+                <div id="cv-tab" class="tab-content">
+                    <h3 style="color: var(--text-primary); margin-bottom: 1.5rem;">Upload CV/Resume</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Upload your CV as PDF. Visitors can download it from your portfolio.</p>
+                    <div class="form-group">
+                        <label>CV/Resume PDF</label>
+                        <label class="file-upload-label" for="cvInput">
+                            <div>Click to upload or drag and drop</div>
+                            <small style="color: var(--text-secondary);">PDF format only, max 10MB</small>
+                            <input type="file" id="cvInput" accept=".pdf" onchange="handleCVUpload(event)">
+                        </label>
+                        <div id="cvPreview"></div>
+                    </div>
+                    <button class="btn-admin delete-btn" onclick="removeCV()" style="width: auto; padding: 0.6rem 1.2rem;">Remove CV</button>
                 </div>
 
                 <!-- Projects Tab -->
-                <div id="projects-tab" class="tab-content active">
-                    <h3>Projects Management</h3>
-                    <div id="projectsListAdmin" class="projects-list"></div>
-                    <button class="btn btn-primary" onclick="showProjectForm()">+ Add New Project</button>
+                <div id="projects-tab" class="tab-content">
+                    <h3 style="color: var(--text-primary); margin-bottom: 1.5rem;">Featured Projects</h3>
+                    <div class="items-list" id="projectsListAdmin"></div>
+                    <button class="btn-admin btn-save" onclick="showProjectForm()">Add Project</button>
 
-                    <div id="projectFormContainer" style="display:none; margin-top: 2rem; padding: 2rem; background: var(--light); border-radius: 4px;">
-                        <h4 id="projectFormTitle">Add New Project</h4>
+                    <div id="projectFormContainer" style="display:none; margin-top: 2rem; padding: 1.5rem; background: rgba(0, 102, 204, 0.05); border-radius: 6px; border: 1px solid var(--border-color);">
+                        <h4 id="projectFormTitle" style="color: var(--text-primary); margin-bottom: 1.5rem;">Add Project</h4>
                         <form onsubmit="saveProject(event)">
                             <div class="form-group">
-                                <label>Project Title *</label>
+                                <label>Project Title</label>
                                 <input type="text" id="projectTitle" required>
                             </div>
                             <div class="form-group">
-                                <label>Category/Role *</label>
+                                <label>Category</label>
                                 <input type="text" id="projectCategory" placeholder="e.g., NTT DATA Platform IP" required>
                             </div>
                             <div class="form-group">
-                                <label>Description *</label>
+                                <label>Problem/Challenge</label>
                                 <textarea id="projectDesc" required></textarea>
                             </div>
                             <div class="form-group">
-                                <label>Key Outcome *</label>
+                                <label>Solution & Outcome</label>
                                 <textarea id="projectOutcome" required></textarea>
                             </div>
                             <div class="form-group">
-                                <label>Technologies (comma-separated)</label>
-                                <input type="text" id="projectTech" placeholder="e.g., Azure AI Foundry, Copilot Studio">
+                                <label>Technologies</label>
+                                <input type="text" id="projectTech" placeholder="Comma-separated">
                             </div>
                             <input type="hidden" id="projectId">
                             <div class="btn-group">
-                                <button type="submit" class="btn btn-primary">Save Project</button>
-                                <button type="button" class="btn btn-secondary" onclick="cancelProjectForm()">Cancel</button>
+                                <button type="submit" class="btn-admin btn-save">Save</button>
+                                <button type="button" class="btn-admin" style="background: var(--border-color); color: var(--text-secondary);" onclick="cancelProjectForm()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Blogs Tab -->
+                <div id="blogs-tab" class="tab-content">
+                    <h3 style="color: var(--text-primary); margin-bottom: 1.5rem;">Blog Posts</h3>
+                    <div class="items-list" id="blogsListAdmin"></div>
+                    <button class="btn-admin btn-save" onclick="showBlogForm()">Add Blog Post</button>
+
+                    <div id="blogFormContainer" style="display:none; margin-top: 2rem; padding: 1.5rem; background: rgba(0, 102, 204, 0.05); border-radius: 6px; border: 1px solid var(--border-color);">
+                        <h4 id="blogFormTitle" style="color: var(--text-primary); margin-bottom: 1.5rem;">Add Blog Post</h4>
+                        <form onsubmit="saveBlog(event)">
+                            <div class="form-group">
+                                <label>Blog Title</label>
+                                <input type="text" id="blogTitle" placeholder="Article headline" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Category</label>
+                                <input type="text" id="blogCategory" placeholder="e.g., AI, Cloud Architecture, Leadership" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Publish Date</label>
+                                <input type="date" id="blogDate" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Excerpt/Summary</label>
+                                <textarea id="blogExcerpt" placeholder="Brief summary of the article" required></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label>Article Link</label>
+                                <input type="url" id="blogLink" placeholder="https://yoursite.com/blog/article" required>
+                            </div>
+                            <input type="hidden" id="blogId">
+                            <div class="btn-group">
+                                <button type="submit" class="btn-admin btn-save">Save</button>
+                                <button type="button" class="btn-admin" style="background: var(--border-color); color: var(--text-secondary);" onclick="cancelBlogForm()">Cancel</button>
                             </div>
                         </form>
                     </div>
@@ -767,61 +1147,80 @@
 
                 <!-- Experience Tab -->
                 <div id="experience-tab" class="tab-content">
-                    <h3>Experience Management</h3>
-                    <div id="experienceListAdmin" class="projects-list"></div>
-                    <button class="btn btn-primary" onclick="showExperienceForm()">+ Add New Role</button>
+                    <h3 style="color: var(--text-primary); margin-bottom: 1.5rem;">Work Experience</h3>
+                    <div class="items-list" id="experienceListAdmin"></div>
+                    <button class="btn-admin btn-save" onclick="showExperienceForm()">Add Role</button>
 
-                    <div id="experienceFormContainer" style="display:none; margin-top: 2rem; padding: 2rem; background: var(--light); border-radius: 4px;">
-                        <h4 id="experienceFormTitle">Add New Experience</h4>
+                    <div id="experienceFormContainer" style="display:none; margin-top: 2rem; padding: 1.5rem; background: rgba(0, 102, 204, 0.05); border-radius: 6px; border: 1px solid var(--border-color);">
+                        <h4 id="experienceFormTitle" style="color: var(--text-primary); margin-bottom: 1.5rem;">Add Work Experience</h4>
                         <form onsubmit="saveExperience(event)">
                             <div class="form-group">
-                                <label>Job Title *</label>
+                                <label>Job Title</label>
                                 <input type="text" id="expTitle" required>
                             </div>
                             <div class="form-group">
-                                <label>Company *</label>
+                                <label>Company</label>
                                 <input type="text" id="expCompany" required>
                             </div>
                             <div class="form-group">
-                                <label>Date Range *</label>
-                                <input type="text" id="expDate" placeholder="e.g., 03/2024 - 04/2025" required>
+                                <label>Date Range</label>
+                                <input type="text" id="expDate" placeholder="03/2024 - Present" required>
                             </div>
                             <div class="form-group">
-                                <label>Description/Responsibilities *</label>
+                                <label>Description</label>
                                 <textarea id="expDesc" required></textarea>
                             </div>
                             <input type="hidden" id="expId">
                             <div class="btn-group">
-                                <button type="submit" class="btn btn-primary">Save Experience</button>
-                                <button type="button" class="btn btn-secondary" onclick="cancelExperienceForm()">Cancel</button>
+                                <button type="submit" class="btn-admin btn-save">Save</button>
+                                <button type="button" class="btn-admin" style="background: var(--border-color); color: var(--text-secondary);" onclick="cancelExperienceForm()">Cancel</button>
                             </div>
                         </form>
                     </div>
                 </div>
 
-                <!-- About Tab -->
-                <div id="about-tab" class="tab-content">
-                    <h3>Edit About Section</h3>
-                    <form onsubmit="saveAbout(event)">
-                        <div class="form-group">
-                            <label>Professional Summary</label>
-                            <textarea id="aboutEdit" style="min-height: 200px;"></textarea>
-                        </div>
-                        <div class="btn-group">
-                            <button type="submit" class="btn btn-primary">Save Changes</button>
-                        </div>
-                    </form>
+                <!-- Certifications Tab -->
+                <div id="certs-tab" class="tab-content">
+                    <h3 style="color: var(--text-primary); margin-bottom: 1.5rem;">Certifications</h3>
+                    <div class="items-list" id="certsListAdmin"></div>
+                    <button class="btn-admin btn-save" onclick="showCertForm()">Add Certification</button>
+
+                    <div id="certFormContainer" style="display:none; margin-top: 2rem; padding: 1.5rem; background: rgba(0, 102, 204, 0.05); border-radius: 6px; border: 1px solid var(--border-color);">
+                        <h4 id="certFormTitle" style="color: var(--text-primary); margin-bottom: 1.5rem;">Add Certification</h4>
+                        <form onsubmit="saveCert(event)">
+                            <div class="form-group">
+                                <label>Certification Name</label>
+                                <input type="text" id="certName" placeholder="Azure Solutions Architect Expert" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Issuing Organization</label>
+                                <input type="text" id="certIssuer" placeholder="Microsoft, AWS, Google Cloud" required>
+                            </div>
+                            <div class="form-group">
+                                <label>Exam Code</label>
+                                <input type="text" id="certCode" placeholder="e.g., AZ-104">
+                            </div>
+                            <div class="form-group">
+                                <label>Date Obtained</label>
+                                <input type="month" id="certDate" required>
+                            </div>
+                            <input type="hidden" id="certId">
+                            <div class="btn-group">
+                                <button type="submit" class="btn-admin btn-save">Save</button>
+                                <button type="button" class="btn-admin" style="background: var(--border-color); color: var(--text-secondary);" onclick="cancelCertForm()">Cancel</button>
+                            </div>
+                        </form>
+                    </div>
                 </div>
 
-                <!-- Export Tab -->
+                <!-- Backup Tab -->
                 <div id="export-tab" class="tab-content">
-                    <h3>Backup & Data Management</h3>
-                    <p>Export your portfolio data as JSON for backup or version control.</p>
-                    <div style="margin-top: 1rem;">
-                        <button class="btn btn-primary" onclick="exportData()">📥 Export Portfolio Data</button>
-                        <button class="btn btn-secondary" onclick="document.getElementById('importFile').click()" style="margin-top: 0.5rem;">📤 Import Portfolio Data</button>
+                    <h3 style="color: var(--text-primary); margin-bottom: 1.5rem;">Backup & Export</h3>
+                    <p style="color: var(--text-secondary); margin-bottom: 1.5rem;">Download your portfolio data as JSON or restore from backup.</p>
+                    <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+                        <button class="btn-admin btn-save" onclick="exportData()">Export Data</button>
+                        <button class="btn-admin" style="background: var(--border-color); color: var(--text-secondary);" onclick="document.getElementById('importFile').click()">Import Data</button>
                         <input type="file" id="importFile" accept=".json" style="display:none;" onchange="importData(event)">
-                        <p style="margin-top: 1rem; color: var(--gray); font-size: 0.9rem;">💡 Regularly download backups. You can also commit the exported JSON to your GitHub repo for version control.</p>
                     </div>
                 </div>
             </div>
@@ -830,61 +1229,49 @@
 
     <!-- Footer -->
     <footer>
-        <p>&copy; 2025 Ashish Mishra. All rights reserved.</p>
-        <p>Built with ❤️ | <a href="https://github.com/AshaberTooth/preamble.io" style="color: var(--accent); text-decoration: none;">View Source</a></p>
+        <div class="container">
+            <p>&copy; 2025 Ashish Mishra. All rights reserved.</p>
+            <p><a href="https://github.com/AshaberTooth/preamble.io">View on GitHub</a></p>
+        </div>
     </footer>
 
     <script>
-        // Data Management
         const DEFAULT_DATA = {
-            about: "Dual-track AI Solutions Architect — 11+ years across enterprise cloud, voice and applied AI. Wins the deal as lead technical advisor (C-suite discovery, L-300 deep-dives, RFP/SoW, sizing and estimation), then owns the architecture to production. Designs multi-agent systems (MCP, A2A) and agentic landing zones on Azure AI Foundry, Copilot Studio and Azure OpenAI, with hands-on depth in OpenAI and Anthropic Claude. Attaches durable Azure and AI consumption to every win across pharmaceutical, banking, consumer goods and telecom accounts.",
-            skills: [
-                "Azure AI Foundry", "Copilot Studio", "Azure OpenAI",
-                "GenAI/Agentic AI", "Multi-agent Systems (MCP, A2A)",
-                "Enterprise Architecture", "Solution Design",
-                "Cloud Platforms (Azure/AWS/GCP)", "AI/ML Engineering",
-                "Dynamics 365", "Power Platform", "ServiceNow",
-                "RAG Pipelines", "Voice AI", "Contact Center Automation"
-            ],
-            experience: [
-                {
-                    id: 1,
-                    title: "Lead Solutions Architect - Manager",
-                    company: "NTT Data",
-                    date: "04/2025 - Current",
-                    description: "• Customer Discovery & Value Shaping: Lead discovery workshops, ideation sessions, and design-thinking exercises with executive and operational stakeholders to identify high-value AI transformation opportunities.\n• Solution Architecture: Design end-to-end architectures for AI, GenAI, Agentic AI, and intelligent automation solutions, including multi-agent orchestration, RAG pipelines, and human-in-the-loop workflows.\n• Rapid Prototyping & Delivery: Build proof-of-concepts and production-ready prototypes (4-6 week POCs using Azure AI Foundry, Copilot Studio, Azure OpenAI)."
-                },
-                {
-                    id: 2,
-                    title: "Solution Architect",
-                    company: "NTT Data",
-                    date: "03/2024 - 04/2025",
-                    description: "• Led discovery workshops and design-thinking exercises to identify high-value AI transformation opportunities\n• Designed end-to-end architectures for AI, GenAI, Agentic AI, and intelligent automation solutions\n• Built proof-of-concepts and production-ready prototypes that validate use cases and accelerate adoption"
-                },
-                {
-                    id: 3,
-                    title: "Senior Solutions Engineer",
-                    company: "Microsoft",
-                    date: "09/2021 - 12/2024",
-                    description: "• Resolved Tier-III escalations for Microsoft Teams, Dynamics 365 Customer Service, and Copilot Studio\n• Designed customer service workflows and agent-assist solutions leveraging AI-powered routing\n• Trained Tier I/II engineers and designed Microsoft voice and network infrastructure"
-                }
-            ],
+            profilePic: null,
+            cvFile: null,
             projects: [
                 {
                     id: 1,
                     title: "Agentic AI Communications Gateway",
                     category: "NTT DATA Platform IP",
-                    description: "Voice, Teams, email, WhatsApp, fax and web ran on disconnected stacks, blocking AI agents from serving a journey end to end.",
-                    outcome: "Enterprise gateway with real-time voice AI, human-agent handoff, multi-agent orchestration over MCP and A2A, CRM/ERP connectivity and governance. Demo-ready GTM asset; cuts design effort per deal and POC cycles from months to weeks.",
-                    technologies: ["Voice AI", "Azure AI", "MCP", "A2A", "CRM Integration", "Copilot Studio"]
-                },
+                    description: "Voice, Teams, email, WhatsApp, fax and web ran on disconnected stacks, blocking AI agents from serving a customer journey end to end.",
+                    outcome: "Built enterprise gateway with real-time voice AI, human-agent handoff, multi-agent orchestration over MCP and A2A, CRM/ERP connectivity and governance. Demo-ready GTM asset; cuts design effort per deal and POC cycles from months to weeks.",
+                    technologies: ["Voice AI", "Azure AI Foundry", "MCP", "A2A", "Copilot Studio"]
+                }
+            ],
+            blogs: [],
+            experience: [
                 {
-                    id: 2,
-                    title: "AI-Enabled Omnichannel Contact Centre",
-                    category: "Global Pharmaceutical Manufacturer",
-                    description: "Service fragmented across markets, fax-based order intake, and manual adverse-event (AE) reporting.",
-                    outcome: "Dynamics 365 Contact Center with Copilot Studio IVR, intelligent routing, agent assist, cloud fax automation and AE routing to pharmacovigilance; integrated with SAP, Salesforce, IQVIA and Teams. Two-phase plan approved on a 45-day parallel-workstream timeline.",
-                    technologies: ["Dynamics 365", "Copilot Studio", "SAP Integration", "Cloud Fax Automation", "OCR"]
+                    id: 1,
+                    title: "Lead Solutions Architect - Manager",
+                    company: "NTT DATA",
+                    date: "04/2025 - Present",
+                    description: "Lead discovery workshops and design-thinking exercises to identify high-value AI transformation opportunities. Design end-to-end architectures for AI, GenAI, Agentic AI solutions with multi-agent orchestration and RAG pipelines. Build proof-of-concepts and production-ready prototypes (4-6 week POCs) using Azure AI Foundry and Copilot Studio."
+                }
+            ],
+            certifications: [
+                {
+                    id: 1,
+                    name: "AB-100 Agentic AI Business Solutions Architect",
+                    issuer: "Microsoft",
+                    code: "AB-100",
+                    date: "2026-01"
+                }
+            ],
+            skills: [
+                {
+                    category: "AI & Agentic AI",
+                    items: ["Azure AI Foundry", "Copilot Studio", "Azure OpenAI", "Multi-agent Systems", "MCP", "A2A", "RAG Pipelines"]
                 }
             ]
         };
@@ -897,7 +1284,7 @@
 
             loadData() {
                 const stored = localStorage.getItem('portfolioData');
-                this.data = stored ? JSON.parse(stored) : DEFAULT_DATA;
+                this.data = stored ? JSON.parse(stored) : JSON.parse(JSON.stringify(DEFAULT_DATA));
             }
 
             saveData() {
@@ -906,20 +1293,52 @@
 
             render() {
                 this.renderProjects();
+                this.renderBlogs();
                 this.renderExperience();
-                this.renderAbout();
+                this.renderCertifications();
                 this.renderSkills();
+                this.renderProfilePic();
+                this.renderCV();
                 this.updateStats();
+            }
+
+            renderProfilePic() {
+                const img = document.getElementById('profileImage');
+                const placeholder = document.getElementById('profilePlaceholder');
+                
+                if (this.data.profilePic) {
+                    img.src = this.data.profilePic;
+                    img.style.display = 'block';
+                    placeholder.style.display = 'none';
+                } else {
+                    img.style.display = 'none';
+                    placeholder.style.display = 'flex';
+                }
+            }
+
+            renderCV() {
+                const downloadBtn = document.getElementById('cvDownloadBtn');
+                const placeholder = document.getElementById('cvPlaceholder');
+
+                if (this.data.cvFile) {
+                    downloadBtn.href = this.data.cvFile;
+                    downloadBtn.download = 'Ashish_Mishra_CV.pdf';
+                    downloadBtn.style.display = 'inline-block';
+                    placeholder.style.display = 'none';
+                } else {
+                    downloadBtn.style.display = 'none';
+                    placeholder.style.display = 'block';
+                }
             }
 
             renderProjects() {
                 const container = document.getElementById('projectsContainer');
                 container.innerHTML = this.data.projects.map(p => `
                     <div class="project-card">
+                        <div class="project-category">${p.category}</div>
                         <div class="project-title">${p.title}</div>
-                        <div class="project-meta">${p.category}</div>
-                        <div class="project-description"><strong>Challenge:</strong> ${p.description}</div>
-                        <div class="project-description"><strong>Outcome:</strong> ${p.outcome}</div>
+                        <div class="project-text"><strong>Challenge:</strong> ${p.description}</div>
+                        <div class="project-text"><strong>Solution:</strong> ${p.outcome}</div>
                         <div class="project-tags">
                             ${p.technologies.map(t => `<span class="tag">${t}</span>`).join('')}
                         </div>
@@ -928,14 +1347,50 @@
 
                 const adminList = document.getElementById('projectsListAdmin');
                 adminList.innerHTML = this.data.projects.map(p => `
-                    <div class="project-item">
-                        <div class="project-item-info">
+                    <div class="item">
+                        <div class="item-info">
                             <h4>${p.title}</h4>
                             <p>${p.category}</p>
                         </div>
-                        <div class="project-item-actions">
+                        <div class="item-actions">
                             <button class="edit-btn" onclick="portfolio.editProject(${p.id})">Edit</button>
                             <button class="delete-btn" onclick="portfolio.deleteProject(${p.id})">Delete</button>
+                        </div>
+                    </div>
+                `).join('');
+            }
+
+            renderBlogs() {
+                const container = document.getElementById('blogsContainer');
+                if (this.data.blogs.length === 0) {
+                    container.innerHTML = '<p style="color: var(--text-secondary); grid-column: 1/-1;">No blog posts published yet. Check back soon!</p>';
+                } else {
+                    container.innerHTML = this.data.blogs
+                        .sort((a, b) => new Date(b.date) - new Date(a.date))
+                        .map(b => {
+                            const dateStr = new Date(b.date).toLocaleDateString('en-US', {year: 'numeric', month: 'short', day: 'numeric'});
+                            return `
+                        <div class="blog-card">
+                            <div class="blog-date">${dateStr}</div>
+                            <div class="blog-title">${b.title}</div>
+                            <div class="blog-category">${b.category}</div>
+                            <div class="blog-excerpt">${b.excerpt}</div>
+                            <a href="${b.link}" target="_blank" class="blog-link">Read More →</a>
+                        </div>
+                    `;
+                        }).join('');
+                }
+
+                const adminList = document.getElementById('blogsListAdmin');
+                adminList.innerHTML = this.data.blogs.map(b => `
+                    <div class="item">
+                        <div class="item-info">
+                            <h4>${b.title}</h4>
+                            <p>${b.category} · ${new Date(b.date).toLocaleDateString('en-US', {year: 'numeric', month: 'short'})}</p>
+                        </div>
+                        <div class="item-actions">
+                            <button class="edit-btn" onclick="portfolio.editBlog(${b.id})">Edit</button>
+                            <button class="delete-btn" onclick="portfolio.deleteBlog(${b.id})">Delete</button>
                         </div>
                     </div>
                 `).join('');
@@ -945,27 +1400,25 @@
                 const container = document.getElementById('experienceContainer');
                 container.innerHTML = this.data.experience.map(e => `
                     <div class="experience-item">
-                        <div class="experience-header">
+                        <div class="exp-header">
                             <div>
-                                <div class="experience-title">${e.title}</div>
-                                <div class="experience-company">${e.company}</div>
+                                <div class="exp-title">${e.title}</div>
+                                <div class="exp-company">${e.company}</div>
                             </div>
-                            <div class="experience-date">${e.date}</div>
+                            <div class="exp-date">${e.date}</div>
                         </div>
-                        <div class="experience-description">
-                            ${e.description.split('\n').map(line => line.trim() ? (line.startsWith('•') ? `<li>${line.substring(1).trim()}</li>` : `<p>${line}</p>`) : '').join('')}
-                        </div>
+                        <div class="exp-description">${e.description}</div>
                     </div>
                 `).join('');
 
                 const adminList = document.getElementById('experienceListAdmin');
                 adminList.innerHTML = this.data.experience.map(e => `
-                    <div class="project-item">
-                        <div class="project-item-info">
+                    <div class="item">
+                        <div class="item-info">
                             <h4>${e.title}</h4>
-                            <p>${e.company} • ${e.date}</p>
+                            <p>${e.company} · ${e.date}</p>
                         </div>
-                        <div class="project-item-actions">
+                        <div class="item-actions">
                             <button class="edit-btn" onclick="portfolio.editExperience(${e.id})">Edit</button>
                             <button class="delete-btn" onclick="portfolio.deleteExperience(${e.id})">Delete</button>
                         </div>
@@ -973,67 +1426,136 @@
                 `).join('');
             }
 
-            renderAbout() {
-                document.getElementById('aboutText').textContent = this.data.about;
-                document.getElementById('aboutEdit').value = this.data.about;
+            renderCertifications() {
+                const container = document.getElementById('certificationsContainer');
+                container.innerHTML = this.data.certifications.map(c => `
+                    <div class="cert-card">
+                        <div class="cert-name">${c.name}</div>
+                        <div class="cert-issuer">${c.issuer}</div>
+                        ${c.code ? `<div style="color: var(--accent-primary); font-size: 0.8rem; margin-top: 0.5rem; font-weight: 600;">${c.code}</div>` : ''}
+                        <div class="cert-date">Obtained: ${new Date(c.date + '-01').toLocaleDateString('en-US', {year: 'numeric', month: 'short'})}</div>
+                    </div>
+                `).join('');
+
+                const adminList = document.getElementById('certsListAdmin');
+                adminList.innerHTML = this.data.certifications.map(c => `
+                    <div class="item">
+                        <div class="item-info">
+                            <h4>${c.name}</h4>
+                            <p>${c.issuer}${c.code ? ` · ${c.code}` : ''}</p>
+                        </div>
+                        <div class="item-actions">
+                            <button class="edit-btn" onclick="portfolio.editCert(${c.id})">Edit</button>
+                            <button class="delete-btn" onclick="portfolio.deleteCert(${c.id})">Delete</button>
+                        </div>
+                    </div>
+                `).join('');
             }
 
             renderSkills() {
                 const container = document.getElementById('skillsContainer');
-                container.innerHTML = this.data.skills.map(skill => `<div class="skill-tag">${skill}</div>`).join('');
+                container.innerHTML = this.data.skills.map(s => `
+                    <div class="skill-category">
+                        <h3>${s.category}</h3>
+                        <div class="skill-list">
+                            ${s.items.map(item => `<div class="skill-item">${item}</div>`).join('')}
+                        </div>
+                    </div>
+                `).join('');
             }
 
             updateStats() {
-                document.getElementById('projectCount').textContent = this.data.projects.length;
+                document.getElementById('certCount').textContent = this.data.certifications.length;
             }
 
+            // Project methods
             editProject(id) {
-                const project = this.data.projects.find(p => p.id === id);
-                if (project) {
+                const p = this.data.projects.find(x => x.id === id);
+                if (p) {
                     document.getElementById('projectId').value = id;
-                    document.getElementById('projectTitle').value = project.title;
-                    document.getElementById('projectCategory').value = project.category;
-                    document.getElementById('projectDesc').value = project.description;
-                    document.getElementById('projectOutcome').value = project.outcome;
-                    document.getElementById('projectTech').value = project.technologies.join(', ');
+                    document.getElementById('projectTitle').value = p.title;
+                    document.getElementById('projectCategory').value = p.category;
+                    document.getElementById('projectDesc').value = p.description;
+                    document.getElementById('projectOutcome').value = p.outcome;
+                    document.getElementById('projectTech').value = p.technologies.join(', ');
                     document.getElementById('projectFormTitle').textContent = 'Edit Project';
                     document.getElementById('projectFormContainer').style.display = 'block';
-                    document.querySelector('#projectFormContainer form').scrollIntoView({ behavior: 'smooth' });
                 }
             }
 
             deleteProject(id) {
-                if (confirm('Are you sure you want to delete this project?')) {
+                if (confirm('Delete this project?')) {
                     this.data.projects = this.data.projects.filter(p => p.id !== id);
                     this.saveData();
                     this.render();
                 }
             }
 
+            editBlog(id) {
+                const b = this.data.blogs.find(x => x.id === id);
+                if (b) {
+                    document.getElementById('blogId').value = id;
+                    document.getElementById('blogTitle').value = b.title;
+                    document.getElementById('blogCategory').value = b.category;
+                    document.getElementById('blogDate').value = b.date;
+                    document.getElementById('blogExcerpt').value = b.excerpt;
+                    document.getElementById('blogLink').value = b.link;
+                    document.getElementById('blogFormTitle').textContent = 'Edit Blog Post';
+                    document.getElementById('blogFormContainer').style.display = 'block';
+                }
+            }
+
+            deleteBlog(id) {
+                if (confirm('Delete this blog post?')) {
+                    this.data.blogs = this.data.blogs.filter(b => b.id !== id);
+                    this.saveData();
+                    this.render();
+                }
+            }
+
             editExperience(id) {
-                const exp = this.data.experience.find(e => e.id === id);
-                if (exp) {
+                const e = this.data.experience.find(x => x.id === id);
+                if (e) {
                     document.getElementById('expId').value = id;
-                    document.getElementById('expTitle').value = exp.title;
-                    document.getElementById('expCompany').value = exp.company;
-                    document.getElementById('expDate').value = exp.date;
-                    document.getElementById('expDesc').value = exp.description;
+                    document.getElementById('expTitle').value = e.title;
+                    document.getElementById('expCompany').value = e.company;
+                    document.getElementById('expDate').value = e.date;
+                    document.getElementById('expDesc').value = e.description;
                     document.getElementById('experienceFormTitle').textContent = 'Edit Experience';
                     document.getElementById('experienceFormContainer').style.display = 'block';
-                    document.querySelector('#experienceFormContainer form').scrollIntoView({ behavior: 'smooth' });
                 }
             }
 
             deleteExperience(id) {
-                if (confirm('Are you sure you want to delete this experience entry?')) {
+                if (confirm('Delete this experience?')) {
                     this.data.experience = this.data.experience.filter(e => e.id !== id);
+                    this.saveData();
+                    this.render();
+                }
+            }
+
+            editCert(id) {
+                const c = this.data.certifications.find(x => x.id === id);
+                if (c) {
+                    document.getElementById('certId').value = id;
+                    document.getElementById('certName').value = c.name;
+                    document.getElementById('certIssuer').value = c.issuer;
+                    document.getElementById('certCode').value = c.code || '';
+                    document.getElementById('certDate').value = c.date;
+                    document.getElementById('certFormTitle').textContent = 'Edit Certification';
+                    document.getElementById('certFormContainer').style.display = 'block';
+                }
+            }
+
+            deleteCert(id) {
+                if (confirm('Delete this certification?')) {
+                    this.data.certifications = this.data.certifications.filter(c => c.id !== id);
                     this.saveData();
                     this.render();
                 }
             }
         }
 
-        // Initialize
         let portfolio = new PortfolioManager();
 
         // UI Functions
@@ -1042,15 +1564,69 @@
         }
 
         function switchTab(tabName) {
-            // Hide all tabs
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.querySelectorAll('.tab-btn').forEach(btn => btn.classList.remove('active'));
-
-            // Show selected tab
+            document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
             document.getElementById(tabName).classList.add('active');
             event.target.classList.add('active');
         }
 
+        function scrollToCV() {
+            document.getElementById('cv-section').scrollIntoView({ behavior: 'smooth' });
+        }
+
+        // Profile picture
+        function handleProfilePicUpload(event) {
+            const file = event.target.files[0];
+            if (file && file.size <= 5 * 1024 * 1024) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    portfolio.data.profilePic = e.target.result;
+                    portfolio.saveData();
+                    portfolio.render();
+                    document.getElementById('profilePreview').innerHTML = `<img src="${e.target.result}" alt="Profile"><p class="file-preview-text">Picture updated</p>`;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert('File too large (max 5MB)');
+            }
+        }
+
+        function removeProfilePic() {
+            if (confirm('Remove picture?')) {
+                portfolio.data.profilePic = null;
+                portfolio.saveData();
+                portfolio.render();
+                document.getElementById('profilePreview').innerHTML = '';
+            }
+        }
+
+        // CV Upload
+        function handleCVUpload(event) {
+            const file = event.target.files[0];
+            if (file && file.type === 'application/pdf' && file.size <= 10 * 1024 * 1024) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    portfolio.data.cvFile = e.target.result;
+                    portfolio.saveData();
+                    portfolio.render();
+                    document.getElementById('cvPreview').innerHTML = `<p class="file-preview-text">CV uploaded: ${file.name}</p>`;
+                };
+                reader.readAsDataURL(file);
+            } else {
+                alert('Please upload a PDF file (max 10MB)');
+            }
+        }
+
+        function removeCV() {
+            if (confirm('Remove CV?')) {
+                portfolio.data.cvFile = null;
+                portfolio.saveData();
+                portfolio.render();
+                document.getElementById('cvPreview').innerHTML = '';
+            }
+        }
+
+        // Projects
         function showProjectForm() {
             document.getElementById('projectId').value = '';
             document.getElementById('projectTitle').value = '';
@@ -1058,7 +1634,7 @@
             document.getElementById('projectDesc').value = '';
             document.getElementById('projectOutcome').value = '';
             document.getElementById('projectTech').value = '';
-            document.getElementById('projectFormTitle').textContent = 'Add New Project';
+            document.getElementById('projectFormTitle').textContent = 'Add Project';
             document.getElementById('projectFormContainer').style.display = 'block';
         }
 
@@ -1069,34 +1645,75 @@
         function saveProject(event) {
             event.preventDefault();
             const id = document.getElementById('projectId').value;
-            const projectData = {
+            const data = {
                 id: id ? parseInt(id) : Date.now(),
                 title: document.getElementById('projectTitle').value,
                 category: document.getElementById('projectCategory').value,
                 description: document.getElementById('projectDesc').value,
                 outcome: document.getElementById('projectOutcome').value,
-                technologies: document.getElementById('projectTech').value.split(',').map(t => t.trim())
+                technologies: document.getElementById('projectTech').value.split(',').map(t => t.trim()).filter(t => t)
             };
 
             if (id) {
-                portfolio.data.projects = portfolio.data.projects.map(p => p.id === parseInt(id) ? projectData : p);
+                portfolio.data.projects = portfolio.data.projects.map(p => p.id === parseInt(id) ? data : p);
             } else {
-                portfolio.data.projects.push(projectData);
+                portfolio.data.projects.push(data);
             }
 
             portfolio.saveData();
             portfolio.render();
             cancelProjectForm();
-            alert('Project saved successfully!');
+            alert('Project saved');
         }
 
+        // Blogs
+        function showBlogForm() {
+            document.getElementById('blogId').value = '';
+            document.getElementById('blogTitle').value = '';
+            document.getElementById('blogCategory').value = '';
+            document.getElementById('blogDate').value = new Date().toISOString().split('T')[0];
+            document.getElementById('blogExcerpt').value = '';
+            document.getElementById('blogLink').value = '';
+            document.getElementById('blogFormTitle').textContent = 'Add Blog Post';
+            document.getElementById('blogFormContainer').style.display = 'block';
+        }
+
+        function cancelBlogForm() {
+            document.getElementById('blogFormContainer').style.display = 'none';
+        }
+
+        function saveBlog(event) {
+            event.preventDefault();
+            const id = document.getElementById('blogId').value;
+            const data = {
+                id: id ? parseInt(id) : Date.now(),
+                title: document.getElementById('blogTitle').value,
+                category: document.getElementById('blogCategory').value,
+                date: document.getElementById('blogDate').value,
+                excerpt: document.getElementById('blogExcerpt').value,
+                link: document.getElementById('blogLink').value
+            };
+
+            if (id) {
+                portfolio.data.blogs = portfolio.data.blogs.map(b => b.id === parseInt(id) ? data : b);
+            } else {
+                portfolio.data.blogs.push(data);
+            }
+
+            portfolio.saveData();
+            portfolio.render();
+            cancelBlogForm();
+            alert('Blog post saved');
+        }
+
+        // Experience
         function showExperienceForm() {
             document.getElementById('expId').value = '';
             document.getElementById('expTitle').value = '';
             document.getElementById('expCompany').value = '';
             document.getElementById('expDate').value = '';
             document.getElementById('expDesc').value = '';
-            document.getElementById('experienceFormTitle').textContent = 'Add New Experience';
+            document.getElementById('experienceFormTitle').textContent = 'Add Work Experience';
             document.getElementById('experienceFormContainer').style.display = 'block';
         }
 
@@ -1107,7 +1724,7 @@
         function saveExperience(event) {
             event.preventDefault();
             const id = document.getElementById('expId').value;
-            const expData = {
+            const data = {
                 id: id ? parseInt(id) : Date.now(),
                 title: document.getElementById('expTitle').value,
                 company: document.getElementById('expCompany').value,
@@ -1116,33 +1733,64 @@
             };
 
             if (id) {
-                portfolio.data.experience = portfolio.data.experience.map(e => e.id === parseInt(id) ? expData : e);
+                portfolio.data.experience = portfolio.data.experience.map(e => e.id === parseInt(id) ? data : e);
             } else {
-                portfolio.data.experience.push(expData);
+                portfolio.data.experience.push(data);
             }
 
             portfolio.saveData();
             portfolio.render();
             cancelExperienceForm();
-            alert('Experience saved successfully!');
+            alert('Experience saved');
         }
 
-        function saveAbout(event) {
+        // Certifications
+        function showCertForm() {
+            document.getElementById('certId').value = '';
+            document.getElementById('certName').value = '';
+            document.getElementById('certIssuer').value = '';
+            document.getElementById('certCode').value = '';
+            document.getElementById('certDate').value = '';
+            document.getElementById('certFormTitle').textContent = 'Add Certification';
+            document.getElementById('certFormContainer').style.display = 'block';
+        }
+
+        function cancelCertForm() {
+            document.getElementById('certFormContainer').style.display = 'none';
+        }
+
+        function saveCert(event) {
             event.preventDefault();
-            portfolio.data.about = document.getElementById('aboutEdit').value;
+            const id = document.getElementById('certId').value;
+            const data = {
+                id: id ? parseInt(id) : Date.now(),
+                name: document.getElementById('certName').value,
+                issuer: document.getElementById('certIssuer').value,
+                code: document.getElementById('certCode').value || '',
+                date: document.getElementById('certDate').value
+            };
+
+            if (id) {
+                portfolio.data.certifications = portfolio.data.certifications.map(c => c.id === parseInt(id) ? data : c);
+            } else {
+                portfolio.data.certifications.push(data);
+            }
+
             portfolio.saveData();
             portfolio.render();
-            alert('About section updated!');
+            cancelCertForm();
+            alert('Certification saved');
         }
 
+        // Export/Import
         function exportData() {
-            const dataStr = JSON.stringify(portfolio.data, null, 2);
-            const dataBlob = new Blob([dataStr], { type: 'application/json' });
-            const url = URL.createObjectURL(dataBlob);
-            const link = document.createElement('a');
-            link.href = url;
-            link.download = `portfolio-backup-${new Date().toISOString().split('T')[0]}.json`;
-            link.click();
+            const json = JSON.stringify(portfolio.data, null, 2);
+            const blob = new Blob([json], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `portfolio-backup-${new Date().toISOString().split('T')[0]}.json`;
+            a.click();
         }
 
         function importData(event) {
@@ -1151,28 +1799,25 @@
                 const reader = new FileReader();
                 reader.onload = (e) => {
                     try {
-                        const imported = JSON.parse(e.target.result);
-                        portfolio.data = imported;
+                        portfolio.data = JSON.parse(e.target.result);
                         portfolio.saveData();
                         portfolio.render();
-                        alert('Portfolio data imported successfully!');
-                    } catch (error) {
-                        alert('Error importing data: ' + error.message);
+                        alert('Data restored');
+                    } catch (err) {
+                        alert('Import error: ' + err.message);
                     }
                 };
                 reader.readAsText(file);
             }
         }
 
-        // Add navigation smooth scroll
-        document.querySelectorAll('nav a').forEach(link => {
+        // Navigation
+        document.querySelectorAll('a[href^="#"]').forEach(link => {
             link.addEventListener('click', (e) => {
-                if (link.getAttribute('href').startsWith('#')) {
+                const target = document.querySelector(link.getAttribute('href'));
+                if (target) {
                     e.preventDefault();
-                    const target = document.querySelector(link.getAttribute('href'));
-                    if (target) {
-                        target.scrollIntoView({ behavior: 'smooth' });
-                    }
+                    target.scrollIntoView({ behavior: 'smooth' });
                 }
             });
         });
